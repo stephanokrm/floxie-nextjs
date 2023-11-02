@@ -19,6 +19,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import SupportIcon from "@mui/icons-material/Support";
 import LogoutIcon from "@mui/icons-material/Logout";
 import ThemeRegistry from "@/components/ThemeRegistry/ThemeRegistry";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "Next.js App Router + Material UI v5",
@@ -113,6 +114,7 @@ export default function RootLayout({
             {children}
           </Box>
         </ThemeRegistry>
+        <Analytics />
       </body>
     </html>
   );
