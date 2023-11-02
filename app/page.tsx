@@ -6,6 +6,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
+import { TrendingAll } from "@/components/TrendingAll";
 
 export default function HomePage() {
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {
           This app uses the Next.js App Router and Material UI v5.
         </Alert>
       </div>
+      <TrendingAll />
       <Drawer
         sx={{
           width: 320,
