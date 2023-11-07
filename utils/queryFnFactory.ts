@@ -1,11 +1,11 @@
 import axios from "axios";
 
 export const queryFnFactory =
-  <T>({ url }: { url: string }) =>
+  <T>({ path }: { path: string }) =>
   ({ pageParam, signal }: { pageParam?: number; signal: AbortSignal }) => {
     const CancelToken = axios.CancelToken;
     const source = CancelToken.source();
-    const request = new URL(url);
+    const request = new URL(`https://api.themoviedb.org/3${path}`);
     request.searchParams.set("language", navigator?.language ?? "en-US");
     request.searchParams.set(
       "api_key",
