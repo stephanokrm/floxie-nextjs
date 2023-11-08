@@ -6,7 +6,10 @@ export const queryFnFactory =
     const CancelToken = axios.CancelToken;
     const source = CancelToken.source();
     const request = new URL(`https://api.themoviedb.org/3${path}`);
-    request.searchParams.set("language", navigator?.language ?? "en-US");
+    request.searchParams.set(
+      "language",
+      globalThis.navigator?.language ?? "en-US",
+    );
     request.searchParams.set(
       "api_key",
       process.env.NEXT_PUBLIC_TMDB_API_KEY ?? "",

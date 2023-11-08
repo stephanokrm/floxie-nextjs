@@ -1,5 +1,6 @@
 "use client";
-import { useQuery } from "@tanstack/react-query";
+
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { queryFnFactory } from "@/utils/queryFnFactory";
 
 export type Tv = {
@@ -21,7 +22,7 @@ export type Tv = {
 };
 
 export const useTv = ({ tvId }: { tvId: number }) => {
-  return useQuery({
+  return useSuspenseQuery({
     queryKey: ["Tv", tvId],
     queryFn: queryFnFactory<Tv>({
       path: `/${"tv" satisfies Tv["media_type"]}/${tvId}`,

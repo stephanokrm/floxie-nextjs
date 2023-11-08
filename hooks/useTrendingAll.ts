@@ -1,5 +1,6 @@
 "use client";
-import { useInfiniteQuery } from "@tanstack/react-query";
+
+import { useSuspenseInfiniteQuery } from "@tanstack/react-query";
 import { queryFnFactory } from "@/utils/queryFnFactory";
 import { Movie } from "@/hooks/useMovie";
 import { Tv } from "@/hooks/useTv";
@@ -20,7 +21,7 @@ export const useTrendingAll = ({
 }: {
   timeWindow: "day" | "week";
 }) => {
-  return useInfiniteQuery({
+  return useSuspenseInfiniteQuery({
     queryKey: ["TrendingAll", timeWindow],
     queryFn: queryFnFactory<TrendingAllResponse>({
       path: `/trending/all/${timeWindow}`,
