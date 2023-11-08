@@ -2,7 +2,10 @@ import axios from "axios";
 
 export const queryFnFactory =
   <T>({ path }: { path: string }) =>
-  ({ pageParam, signal }: { pageParam?: number; signal: AbortSignal }) => {
+  ({
+    pageParam,
+    signal,
+  }: { pageParam?: number; signal?: AbortSignal } = {}) => {
     const CancelToken = axios.CancelToken;
     const source = CancelToken.source();
     const request = new URL(`https://api.themoviedb.org/3${path}`);
